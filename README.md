@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/statespace-tech/python-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/statespace-tech/python-sdk/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-007ec6?style=flat-square)](LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/statespace-sdk?style=flat-square)](https://pypi.org/project/statespace-sdk/)
 
 Run Statespace A/B tests on functions and values in Python applications. Each subject is
 assigned to a group, reads that group's parameters, and falls back to your current code
@@ -12,7 +13,7 @@ everywhere else.
 Install the SDK with pip or uv.
 
 ```shell
-pip install "git+https://github.com/statespace-tech/python-sdk.git@v0.1.1"
+pip install statespace-sdk
 ```
 
 Set an API key from `ssp key create --preset runtime`. Locally, the SDK uses your `ssp login` session.
