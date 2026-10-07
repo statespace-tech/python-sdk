@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "statespace-sdk"
+version = "0.1.1"
+description = "Run Statespace A/B tests on functions in Python applications"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Statespace Technologies, Inc." }]
+keywords = ["ab-testing", "experimentation", "webassembly", "agents"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Typing :: Typed",
+]
+dependencies = [
+    "cel-python>=0.5,<0.6",
+    "certifi>=2025",
+    "tomli>=2; python_version < '3.11'",
+    "wasmtime>=38,<43",
+]
+
+[project.urls]
+Homepage = "https://statespace.com"
+Documentation = "https://docs.statespace.com"
+Repository = "https://github.com/statespace-tech/python-sdk"
+
+[dependency-groups]
+dev = ["mypy>=1.18", "pytest>=8.4", "ruff>=0.13"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/statespace"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+packages = ["statespace"]
+
+[[tool.mypy.overrides]]
+module = ["celpy.*", "tomli", "wasmtime.*"]
+ignore_missing_imports = true
